@@ -45,8 +45,8 @@ function ArtNetController(host, port) {
             node = new ArtnetNode();
             //console.log(m)
             me.nodes.push(node);
-          } 
-          
+          }
+
           node.ip = m.IP.join('.');
           node.mac = _.map(m.MAC, function(n){return n.toString(16)}).join(':');
           node.name = m.LongName;
@@ -102,7 +102,7 @@ ArtNetController.prototype.updateClient = function(ip, name, universes, locate){
   if(universes){
     var portOutput = [];
     for(var i=0;i<4;i++){
-      portOutput[i] = universes[i] & 0xF
+      portOutput[i] = universes[i] & 0xF;
     }
 
     var subSwitch = (universes[0] & 0xF0) >> 4;
@@ -114,7 +114,7 @@ ArtNetController.prototype.updateClient = function(ip, name, universes, locate){
   }
 
   var buf = ArtnetPacket.createProgramAddress({
-    shortName: name, 
+    shortName: name,
     longName: name,
     portOutput: portOutput,
     subSwitch: subSwitch,
