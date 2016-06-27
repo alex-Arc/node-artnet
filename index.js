@@ -55,6 +55,7 @@ function ArtNetController(host, port) {
           node.universesOutput = m.SwOut;
           node.subnet = m.SubSwitch;
           node.net = m.NetSwitch;
+          node.report = m.NodeReport;
 
           node._waitingForPollReply = false;
         }
@@ -107,6 +108,11 @@ ArtNetController.prototype.updateClient = function(ip, name, universes, locate){
 
     var subSwitch = (universes[0] & 0xF0) >> 4;
     var netSwitch = (universes[0] & 0xF00) >> 8;
+    if(portOutput[0]>12){
+        console.error("INVALID PORTS - redo process");
+        return;
+    }
+
   } else {
     var portOutput = undefined;
     var netSwitch = undefined;
