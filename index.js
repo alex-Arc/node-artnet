@@ -19,7 +19,7 @@ console.log(buf);*/
 
 
 
-function ArtNetController(host, port) {
+function ArtNetController(host, port, timeOut) {
   this._host = host;
   this._port = port;
   this._socket = dgram.createSocket({type:"udp4", reuseAddr:true, });
@@ -73,12 +73,15 @@ function ArtNetController(host, port) {
   //  me._socket.addMembership("255.255.255.255")
 
 
-    me.refreshClients();
+    me.refreshClients(timeOut);
   });
 }
 
 
-ArtNetController.prototype.refreshClients = function(){
+ArtNetController.prototype.refreshClients = function(timeOut){
+  if (timeOut === undefined) {
+    timeOut = 2500;
+  }
   //console.log("Frefresh.... Nodes: "+this.nodes.length);
 
   this.nodes = _.filter(this.nodes, function(node){
@@ -93,9 +96,11 @@ ArtNetController.prototype.refreshClients = function(){
   var buf = ArtnetPacket.createArtPoll();
   this._socket.send(buf,0, buf.length, this._port, "2.255.255.255")
 
-  setTimeout(function(_this){
-    _this.refreshClients()
-  },2500, this);
+  if (timeOut <= 0) {
+    setTimeout(function(_this){
+      _this.refreshClients()
+    },timeOut, this);
+  }
 }
 
 ArtNetController.prototype.updateClient = function(ip, name, universes, locate){
