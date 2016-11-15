@@ -17,8 +17,6 @@ serializer.write(buf);
 console.log(buf);*/
 
 
-
-
 function ArtNetController(host, port, timeOut) {
   this._host = host;
   this._port = port;
@@ -73,15 +71,12 @@ function ArtNetController(host, port, timeOut) {
   //  me._socket.addMembership("255.255.255.255")
 
 
-    me.refreshClients(timeOut);
+    me.refreshClients();
   });
 }
 
 
-ArtNetController.prototype.refreshClients = function(timeOut){
-  if (timeOut === undefined) {
-    timeOut = 2500;
-  }
+ArtNetController.prototype.refreshClients = function(){
   //console.log("Frefresh.... Nodes: "+this.nodes.length);
 
   this.nodes = _.filter(this.nodes, function(node){
@@ -96,11 +91,9 @@ ArtNetController.prototype.refreshClients = function(timeOut){
   var buf = ArtnetPacket.createArtPoll();
   this._socket.send(buf,0, buf.length, this._port, "2.255.255.255")
 
-  if (timeOut <= 0) {
-    setTimeout(function(_this){
-      _this.refreshClients()
-    },timeOut, this);
-  }
+  setTimeout(function(_this){
+    _this.refreshClients()
+  },2500, this);
 }
 
 ArtNetController.prototype.updateClient = function(ip, name, universes, locate){
@@ -159,3 +152,5 @@ exports.createController = function(port) {
   if(!port) port = '6454';
   return new ArtNetController("", port);
 }
+
+exports.refreshClients = refreshClients();
