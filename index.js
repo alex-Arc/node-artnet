@@ -17,7 +17,7 @@ serializer.write(buf);
 console.log(buf);*/
 
 
-function ArtNetController(host, port, timeOut) {
+function ArtNetController(host, port) {
   this._host = host;
   this._port = port;
   this._socket = dgram.createSocket({type:"udp4", reuseAddr:true, });
@@ -74,7 +74,6 @@ function ArtNetController(host, port, timeOut) {
     me.refreshClients();
   });
 }
-
 
 ArtNetController.prototype.refreshClients = function(){
   //console.log("Frefresh.... Nodes: "+this.nodes.length);
@@ -152,5 +151,3 @@ exports.createController = function(port) {
   if(!port) port = '6454';
   return new ArtNetController("", port);
 }
-
-exports.refreshClients = refreshClients();
