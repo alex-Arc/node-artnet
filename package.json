@@ -1,16 +1,73 @@
 {
-  "name": "artnet",
-  "version": "0.1.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "_args": [
+    [
+      {
+        "raw": "artnet@git+https://github.com/vertigo-dk/node-artnet.git",
+        "scope": null,
+        "escapedName": "artnet",
+        "name": "artnet",
+        "rawSpec": "git+https://github.com/vertigo-dk/node-artnet.git",
+        "spec": "git+https://github.com/vertigo-dk/node-artnet.git",
+        "type": "hosted",
+        "hosted": {
+          "type": "github",
+          "ssh": "git@github.com:vertigo-dk/node-artnet.git",
+          "sshUrl": "git+ssh://git@github.com/vertigo-dk/node-artnet.git",
+          "httpsUrl": "git+https://github.com/vertigo-dk/node-artnet.git",
+          "gitUrl": "git://github.com/vertigo-dk/node-artnet.git",
+          "shortcut": "github:vertigo-dk/node-artnet",
+          "directUrl": "https://raw.githubusercontent.com/vertigo-dk/node-artnet/master/package.json"
+        }
+      },
+      "/Users/alex/Documents/Programing/Electron/BlackLED control"
+    ]
+  ],
+  "_from": "git+https://github.com/vertigo-dk/node-artnet.git",
+  "_id": "artnet@0.1.0",
+  "_inCache": true,
+  "_location": "/artnet",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "artnet@git+https://github.com/vertigo-dk/node-artnet.git",
+    "scope": null,
+    "escapedName": "artnet",
+    "name": "artnet",
+    "rawSpec": "git+https://github.com/vertigo-dk/node-artnet.git",
+    "spec": "git+https://github.com/vertigo-dk/node-artnet.git",
+    "type": "hosted",
+    "hosted": {
+      "type": "github",
+      "ssh": "git@github.com:vertigo-dk/node-artnet.git",
+      "sshUrl": "git+ssh://git@github.com/vertigo-dk/node-artnet.git",
+      "httpsUrl": "git+https://github.com/vertigo-dk/node-artnet.git",
+      "gitUrl": "git://github.com/vertigo-dk/node-artnet.git",
+      "shortcut": "github:vertigo-dk/node-artnet",
+      "directUrl": "https://raw.githubusercontent.com/vertigo-dk/node-artnet/master/package.json"
+    }
   },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "git+https://github.com/vertigo-dk/node-artnet.git#d207fa9008e18fe05b2ce309bc9edb21de311572",
+  "_shasum": "6d734eebb16b94d4c1e6d4a25ccc9818a0c93314",
+  "_shrinkwrap": null,
+  "_spec": "artnet@git+https://github.com/vertigo-dk/node-artnet.git",
+  "_where": "/Users/alex/Documents/Programing/Electron/BlackLED control",
   "author": "",
-  "license": "MIT",
   "dependencies": {
     "packet": "0.0.6",
     "q": "^1.4.1",
     "underscore": "^1.8.3"
-  }
+  },
+  "devDependencies": {},
+  "gitHead": "d207fa9008e18fe05b2ce309bc9edb21de311572",
+  "license": "MIT",
+  "main": "index.js",
+  "name": "artnet",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "0.1.0"
 }
