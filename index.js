@@ -17,6 +17,8 @@ serializer.write(buf);
 console.log(buf);*/
 
 
+
+
 function ArtNetController(host, port) {
   this._host = host;
   this._port = port;
@@ -34,10 +36,9 @@ function ArtNetController(host, port) {
         if(m.code == 'ArtPollReply'){
        //   console.log(m);
 
-          var node = _.find(me.nodes, function(n){
-            return n.ip == m.IP.join('.');
+          var node = _.find(me.nodes, function(n) {
+            return n.ip + n.BindIndex === m.IP.join('.') + m.BindIndex
           })
-
 
           if(!node){
             node = new ArtnetNode();
@@ -54,6 +55,8 @@ function ArtNetController(host, port) {
           node.subnet = m.SubSwitch;
           node.net = m.NetSwitch;
           node.report = m.NodeReport;
+          node.BindIndex = m.BindIndex;
+
 
           node._waitingForPollReply = false;
         }
@@ -74,6 +77,7 @@ function ArtNetController(host, port) {
     me.refreshClients();
   });
 }
+
 
 ArtNetController.prototype.refreshClients = function(){
   //console.log("Frefresh.... Nodes: "+this.nodes.length);
