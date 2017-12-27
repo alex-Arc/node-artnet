@@ -60,7 +60,13 @@ function ArtNetController(host, port) {
 
           node._waitingForPollReply = false;
         }else if (m.code == 'ArtSync') {
-          me.lastSync = Date.now();
+          let currentSync = Date.now()
+          if (me.lastSync === undefined) {
+            me.lastSync = Date.now()
+            me.fps = 0
+          }
+          me.fps = 1 / ((currentSync - me.lastSync)*0.001)
+          me.lastSync = currentSync
         }
       })
   });
