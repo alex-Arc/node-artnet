@@ -29,8 +29,8 @@ function ArtNetController(host, port) {
 
   var me = this;
   this._socket.on('message', function(msg, rinfo) {
-   // console.log('Received %d bytes from %s:%d\n',
-      //msg.length, rinfo.address, rinfo.port);
+   console.log('Received %d bytes from %s:%d\n',
+      msg.length, rinfo.address, rinfo.port);
 
       ArtnetPacket.parse(msg).then(function(m){
         if(m.code == 'ArtPollReply'){
