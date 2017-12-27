@@ -96,7 +96,7 @@ ArtNetController.prototype.refreshClients = function(){
 
   setTimeout(function(_this){
     _this.refreshClients()
-  },2500, this);
+  },4000, this);
 }
 
 ArtNetController.prototype.updateClient = function(ip, name, universes, locate){
