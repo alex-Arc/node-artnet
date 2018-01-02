@@ -4,20 +4,6 @@ var _ = require('underscore');
 
 var ArtnetPacket = require('./lib/ArtnetPacket');
 var ArtnetNode = require('./lib/ArtnetNode');
-/*
- var parser = require("packet").createParser();
-
- parser.packet("header", "b8 => type, b16 => length, b32 => extra");
-
-var serializer = parser.createSerializer();
-serializer.serialize("header","asd");
-console.log(serializer.length);
-var buf = new Buffer(4);
-serializer.write(buf);
-console.log(buf);*/
-
-
-
 
 function ArtNetController(host, port) {
   this._host = host;
@@ -29,8 +15,7 @@ function ArtNetController(host, port) {
 
   var me = this;
   this._socket.on('message', function(msg, rinfo) {
-   console.log('Received %d bytes from %s:%d\n',
-      msg.length, rinfo.address, rinfo.port);
+   // console.log('Received %d bytes from %s:%d\n',msg.length, rinfo.address, rinfo.port);
 
       ArtnetPacket.parse(msg).then(function(m){
         if(m.code == 'ArtPollReply'){
