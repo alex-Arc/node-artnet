@@ -1,9 +1,27 @@
-var dgram = require('dgram');
-var Buffer = require('buffer').Buffer;
-var _ = require('underscore');
+var dgram = require('dgram')
+var Buffer = require('buffer').Buffer
+var _ = require('underscore')
 
-var ArtnetPacket = require('./lib/ArtnetPacket');
-var ArtnetNode = require('./lib/ArtnetNode');
+var ArtnetPacket = require('./lib/ArtnetPacket')
+var ArtnetNode = require('./lib/ArtnetNode')
+
+function ArtNetClient () {
+  this._socket = dgram.createSocket({ type: 'udp4', reuseAddr: true })
+
+  this._socket.on('error', (err) => {
+    console.log(`server error:\n${err.stack}`)
+  })
+
+  this._socket.on('message', function (msg, rinfo) {
+    ArtnetPacket.parse(msg).then(function (m) {
+      if (m.code === 'ArtPoll') {
+
+      }
+    })
+  })
+
+  this._socket.bind({ port: 6454 })
+}
 
 function ArtNetController(host, port) {
   this._host = host;
@@ -142,7 +160,7 @@ ArtNetController.prototype.close = function(){
   this._socket.close();
 };
 
-exports.ArtNetClient = ArtNetController;
+exports.ArtNetClient = ArtNetClient
 
 exports.createController = function(port) {
   if(!port) port = '6454';
