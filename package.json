@@ -2,10 +2,10 @@
   "_args": [
     [
       {
-        "raw": "artnet@git+https://github.com/vertigo-dk/node-artnet.git",
+        "node-raw": "artnet@git+https://github.com/vertigo-dk/node-artnet.git",
         "scope": null,
-        "escapedName": "artnet",
-        "name": "artnet",
+        "escapedName": "node-artnet",
+        "name": "node-artnet",
         "rawSpec": "git+https://github.com/vertigo-dk/node-artnet.git",
         "spec": "git+https://github.com/vertigo-dk/node-artnet.git",
         "type": "hosted",
@@ -23,15 +23,15 @@
     ]
   ],
   "_from": "git+https://github.com/vertigo-dk/node-artnet.git",
-  "_id": "artnet@0.1.0",
+  "_id": "node-artnet@0.1.0",
   "_inCache": true,
-  "_location": "/artnet",
+  "_location": "/node-artnet",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "artnet@git+https://github.com/vertigo-dk/node-artnet.git",
+    "raw": "node-artnet@git+https://github.com/vertigo-dk/node-artnet.git",
     "scope": null,
-    "escapedName": "artnet",
-    "name": "artnet",
+    "escapedName": "node-artnet",
+    "name": "node-artnet",
     "rawSpec": "git+https://github.com/vertigo-dk/node-artnet.git",
     "spec": "git+https://github.com/vertigo-dk/node-artnet.git",
     "type": "hosted",
@@ -63,7 +63,7 @@
   "gitHead": "d207fa9008e18fe05b2ce309bc9edb21de311572",
   "license": "MIT",
   "main": "index.js",
-  "name": "artnet",
+  "name": "node-artnet",
   "optionalDependencies": {},
   "readme": "ERROR: No README data found!",
   "scripts": {
