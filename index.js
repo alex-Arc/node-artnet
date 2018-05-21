@@ -5,6 +5,12 @@ var _ = require('underscore');
 var ArtnetPacket = require('./lib/ArtnetPacket');
 var ArtnetNode = require('./lib/ArtnetNode');
 
+function pad(num, size) {
+    var s = num+"";
+    while (s.length < size) s = "0" + s;
+    return s;
+}
+
 function ArtNetController(host, port) {
   this._host = host;
   this._port = port;
@@ -34,7 +40,7 @@ function ArtNetController(host, port) {
           node.ip = m.IP.join('.');
           node.mac = _.map(m.MAC, function(n){return n.toString(16)}).join(':');
           node.name = m.LongName;
-          node.version = m.VersionInfoH+"."+m.VersionInfoL;
+          node.version = m.VersionInfoH+"."+pad(m.VersionInfoL,2);
           node.numOutputs = m.NumPortsLo;
           node.universesOutput = m.SwOut;
           node.subnet = m.SubSwitch;
